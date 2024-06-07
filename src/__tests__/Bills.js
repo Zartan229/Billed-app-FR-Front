@@ -115,8 +115,7 @@ describe("Given I am connected as an employee", () => {
             { value: localStorageMock }
         )
         window.localStorage.setItem('user', JSON.stringify({
-          type: 'Admin',
-          email: "a@a"
+          type: 'Employee',
         }))
         const root = document.createElement("div")
         root.setAttribute("id", "root")
