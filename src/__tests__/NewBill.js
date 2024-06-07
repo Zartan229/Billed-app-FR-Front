@@ -28,7 +28,7 @@ describe("Given I am connected as an employee", () => {
       jest.spyOn(window, 'alert').mockImplementation(() => {});
     });
 
-    test("Then it should alert and reset the file input if the file is not a valid image type", () => {
+    test("Then it should warn the user and reset the file input if the file is not a valid image type", () => {
       const newBill = new NewBill({
         document, 
         onNavigate: jest.fn(), // Mock la navigation pour ne pas trigger un changement de page. /Newbill handlesubmit retourne sur bills
@@ -36,7 +36,7 @@ describe("Given I am connected as an employee", () => {
         localStorage: window.localStorage
       });
       // Mock de hangleChangeFile
-      const handleChangeFile = jest.fn(newBill.handleChangeFile);
+      const handleChangeFile = jest.spyOn(newBill, "handleChangeFile");
       const input = screen.getByTestId("file");
       // Ecoute du changement de fichier
       input.addEventListener("change", handleChangeFile);
@@ -57,7 +57,7 @@ describe("Given I am connected as an employee", () => {
         localStorage: window.localStorage
       });
       // Mock de hangleChangeFile
-      const handleChangeFile = jest.fn(newBill.handleChangeFile);
+      const handleChangeFile = jest.spyOn(newBill, "handleChangeFile");
       const input = screen.getByTestId("file");
       // Ecoute du changement de fichier
       input.addEventListener("change", handleChangeFile);
