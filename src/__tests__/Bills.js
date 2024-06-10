@@ -77,7 +77,7 @@ describe("Given I am connected as an employee", () => {
       });
       expect(handleClickIconEyeSpy).toHaveBeenCalled();
       // Test bonus, on vérifie que la modal est appeler.
-      expect($.fn.modal).toHaveBeenCalled();
+      expect($.fn.modal).toHaveBeenCalled(); // Si on utilise .not on obtient les "show" donc sa marche
     });
     
     test("Then clicking on newBill will move use to the newBill page", async () => {
